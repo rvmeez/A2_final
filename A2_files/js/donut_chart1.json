@@ -1,0 +1,213 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "view": {"stroke":"#2a2e4c"},
+    "background":"#2a2e4c",
+    "width": 400,
+    "height": 400,
+    "data": {
+      "values": [
+            {"country": "USA", "value": 15.42},
+            {"country": "India", "value": 6.61},
+            {"country": "France", "value": 5.85},
+            {"country": "Germany", "value": 5.59},
+            {"country": "Brazil", "value": 5.45},
+            {"country": "Japan", "value": 4.82},
+            {"country": "S. Korea", "value": 4.47},
+            {"country": "Iatly", "value": 3.77},
+            {"country": "UK", "value": 3.59},
+            {"country": "Russia", "value": 3.25},
+            {"country": "Turkey", "value": 2.52},
+            {"country": "Spain", "value": 2.03},
+            {"country": "Vietnam", "value": 1.71},
+            {"country": "Australia", "value": 1.67},
+            {"country": "Others", "value": 33.25}
+        ]
+    },
+  
+    "layer": [
+        {
+            "params": [
+                {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
+            ],
+            "mark": {"type": "arc", "innerRadius": 95, "stroke": "#E3EDFF"},
+            "encoding": {
+                "theta": {"field": "value", "type": "quantitative"},
+                "color": {"field": "country", 
+                    "type": "nominal", 
+                    "scale": {"scheme": "category20b"}, 
+                    "legend": null
+                },
+                "tooltip":[
+                    {"field": "country", "type": "nominal", "title": "Country: "},
+                    {"field": "value", "type": "quantitative", "title": "Cases %: "}
+                ],
+                "strokeWidth": {
+                    "condition": [{"param": "hover", "empty": false, "value": 3}],
+                    "value": 0
+                },
+                "order": {"field": "value", "type": "quantitative", "sort": "ascending"}
+            }
+        },
+  
+        {
+            "transform": [{"calculate": "'% Cases'", "as": "text_annotation"}],
+            "mark": {"type": "text"},
+            "encoding": {
+            "text": {"field": "text_annotation"},
+            "color": {"value": "#E3EDFF"},
+            "size": {"value": 27}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Others'", "as": "text"}],
+            "mark": {"type": "text", "dx": -140, "dy": -10},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": 24}
+            }
+        },
+        {
+            "transform": [{"calculate": "'USA'", "as": "text"}],
+            "mark": {"type": "text", "dx": -140, "dy": -10},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -63}
+            }
+        },
+        {
+            "transform": [{"calculate": "'India'", "as": "text"}],
+            "mark": {"type": "text", "dx": 140, "dy": 10},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": 78.5}
+            }
+        },
+        {
+            "transform": [{"calculate": "'France'", "as": "text"}],
+            "mark": {"type": "text", "dx": 145, "dy": 0},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": 62}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Germany'", "as": "text"}],
+            "mark": {"type": "text", "dx": 145, "dy": 5},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": 39}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Brazil'", "as": "text"}],
+            "mark": {"type": "text", "dx": 145, "dy": 15},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": 15}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Japan'", "as": "text"}],
+            "mark": {"type": "text", "dx": 145, "dy": 10},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -2}
+            }
+        },
+        {
+            "transform": [{"calculate": "'S. Korea'", "as": "text"}],
+            "mark": {"type": "text", "dx": 145, "dy": -5},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -12}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Italy'", "as": "text"}],
+            "mark": {"type": "text", "dx": 145, "dy": -10},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -26}
+            }
+        },
+        {
+            "transform": [{"calculate": "'UK'", "as": "text"}],
+            "mark": {"type": "text", "dx": 145, "dy": -5},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -41}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Russia'", "as": "text"}],
+            "mark": {"type": "text", "dx": 150, "dy": -10},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -51.6}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Turkey'", "as": "text"}],
+            "mark": {"type": "text", "dx": 150, "dy": 0},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -66}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Spain'", "as": "text"}],
+            "mark": {"type": "text", "dx": 150, "dy": 0},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -74}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Vietnam'", "as": "text"}],
+            "mark": {"type": "text", "dx": 150, "dy": -5},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -78.35}
+            }
+        },
+        {
+            "transform": [{"calculate": "'Australia'", "as": "text"}],
+            "mark": {"type": "text", "dx": 150, "dy": 0},
+            "encoding": {
+                "text": {"field": "text"},
+                "color": {"value": "#E3EDFF"},
+                "size": {"value": 14},
+                "angle": {"value": -86.5}
+            }
+        }
+  
+    ]
+  }
